@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Books{% endblock %}
+{% block content %}
+  <p><a href="/login">Login</a> | <a href="/register">Register</a></p>
+  <h2>Books</h2>
+  <ul>
+    {% for book in books %}
+    <li>{{ book.title }} by {{ book.author }}</li>
+    {% endfor %}
+  </ul>
+  <form method="POST" action="/add_book">
+    <input name="title" placeholder="Title">
+    <input name="author" placeholder="Author">
+    <button type="submit">Add Book</button>
+  </form>
+{% endblock %}
